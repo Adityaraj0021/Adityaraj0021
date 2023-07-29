@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Aditya Raj</h1>
-<h3 align="center">A passionate frontend developer from India</h3>
+<h3 align="center">A passionate machine learning from India</h3>
 
-- 🌱 I’m currently learning **Python, frontend developer**
+- 🌱 I’m currently learning **Python, machine learning ,deep learning**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
