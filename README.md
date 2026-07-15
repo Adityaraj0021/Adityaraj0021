@@ -19,37 +19,37 @@
   </div>
 </div>
 
-<!-- Modern Terminal -->
-<div style="perspective: 1200px; max-width: 600px; margin: 0 auto;">
-  <div style="background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%); border: 2px solid #4A90E2; border-radius: 12px; padding: 20px; font-family: 'Monaco', 'Courier New', monospace; font-size: 14px; color: #00ff88; box-shadow: 0 0 20px rgba(74, 144, 226, 0.3), inset 0 0 20px rgba(74, 144, 226, 0.1), 0 10px 40px rgba(0, 0, 0, 0.5);">
-    <div style="display: flex; gap: 8px; margin-bottom: 15px;">
-      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; opacity: 0.7;"></div>
-      <div style="width: 12px; height: 12px; border-radius: 50%; background: #febc2e; opacity: 0.7;"></div>
-      <div style="width: 12px; height: 12px; border-radius: 50%; background: #28c940; opacity: 0.7;"></div>
+<!-- Modern Code Block Section -->
+<div style="max-width: 700px; margin: 40px auto 0;">
+  <!-- whoami Section -->
+  <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 4px solid #4A90E2; border-radius: 8px; padding: 24px; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15);">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <span style="font-size: 24px;">👤</span>
+      <span style="color: #4A90E2; font-weight: 700; font-size: 1.1em;">whoami</span>
     </div>
-    
-    <div style="display: flex; align-items: center; margin: 10px 0;">
-      <span style="color: #4A90E2; font-weight: bold; margin-right: 8px;">❯</span>
-      <span style="color: #00ff88;">whoami</span>
+    <div style="color: #00ff88; font-family: 'Monaco', 'Courier New', monospace; font-size: 0.95em; line-height: 1.6; padding-left: 12px; border-left: 2px solid rgba(74, 144, 226, 0.3);">
+      Aditya Raj<br/>
+      <span style="color: #7B68EE;">AI/ML Engineer</span><br/>
+      <span style="color: #FF6B9D;">Bihar, India</span>
     </div>
-    <div style="margin: 12px 0; opacity: 0.95;">Aditya Raj • AI/ML Engineer • Bihar, India</div>
-    
-    <div style="display: flex; align-items: center; margin: 15px 0 10px 0;">
-      <span style="color: #4A90E2; font-weight: bold; margin-right: 8px;">❯</span>
-      <span style="color: #00ff88;">focus --current</span>
+  </div>
+
+  <!-- focus Section -->
+  <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 4px solid #7B68EE; border-radius: 8px; padding: 24px; box-shadow: 0 8px 32px rgba(123, 104, 238, 0.15);">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <span style="font-size: 24px;">🎯</span>
+      <span style="color: #7B68EE; font-weight: 700; font-size: 1.1em;">focus --current</span>
     </div>
-    <div style="margin: 12px 0; opacity: 0.95;">
-      <div style="display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
-        <span style="background: rgba(74, 144, 226, 0.15); border: 1px solid #4A90E2; border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #4A90E2;">🧠 Machine Learning</span>
-        <span style="background: rgba(74, 144, 226, 0.15); border: 1px solid #4A90E2; border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #4A90E2;">✨ Generative AI</span>
-        <span style="background: rgba(74, 144, 226, 0.15); border: 1px solid #4A90E2; border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #4A90E2;">🔗 LLM Engineering</span>
-      </div>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <span style="background: linear-gradient(135deg, rgba(74, 144, 226, 0.2) 0%, rgba(123, 104, 238, 0.2) 100%); border: 1px solid #4A90E2; color: #00ff88; padding: 8px 14px; border-radius: 6px; font-size: 0.9em; font-family: 'Monaco', 'Courier New', monospace;">🧠 ML</span>
+      <span style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.2) 0%, rgba(255, 107, 157, 0.2) 100%); border: 1px solid #7B68EE; color: #00ff88; padding: 8px 14px; border-radius: 6px; font-size: 0.9em; font-family: 'Monaco', 'Courier New', monospace;">✨ GenAI</span>
+      <span style="background: linear-gradient(135deg, rgba(255, 107, 157, 0.2) 0%, rgba(74, 144, 226, 0.2) 100%); border: 1px solid #FF6B9D; color: #00ff88; padding: 8px 14px; border-radius: 6px; font-size: 0.9em; font-family: 'Monaco', 'Courier New', monospace;">🔗 LLMs</span>
     </div>
   </div>
 </div>
 
 <!-- Social Links -->
-<div style="display: flex; gap: 12px; justify-content: center; margin-top: 20px;">
+<div style="display: flex; gap: 12px; justify-content: center; margin-top: 40px;">
   <a href="https://www.linkedin.com/in/aditya-raj01/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="https://github.com/Adityaraj0021?tab=followers"><img src="https://img.shields.io/github/followers/Adityaraj0021?style=flat-square&logo=github&color=181717&label=Followers" alt="GitHub Followers"/></a>
   <img src="https://img.shields.io/badge/Bihar%2C%20India-181717?style=flat-square&logo=googlemaps&logoColor=white" alt="Location"/>
