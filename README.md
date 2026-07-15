@@ -1,8 +1,8 @@
 <div align="center">
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 40px;">
-  <!-- Animated 3D Cube SVG -->
-  <img src="https://raw.githubusercontent.com/Adityaraj0021/Adityaraj0021/main/cube-animation.svg" alt="3D Rotating Cube" width="140" height="140" style="animation: float 3s ease-in-out infinite;">
+  <!-- Animated Neural Network SVG -->
+  <img src="https://raw.githubusercontent.com/Adityaraj0021/Adityaraj0021/main/cube-animation.svg?v=2" alt="Neural Network Animation" width="140" height="140" style="animation: float 3s ease-in-out infinite;">
 
   <!-- Title Section -->
   <div style="text-align: center;">
@@ -37,7 +37,7 @@
   <!-- focus Section -->
   <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-left: 4px solid #7B68EE; border-radius: 8px; padding: 24px; box-shadow: 0 8px 32px rgba(123, 104, 238, 0.15);">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-      <span style="font-size: 24px;">🎯</span>
+      <span style="font-size: 24px;">🧠</span>
       <span style="color: #7B68EE; font-weight: 700; font-size: 1.1em;">focus --current</span>
     </div>
     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
@@ -220,7 +220,7 @@ Environmental‑tech collaboration on plastic interception — Jaipur, India cha
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aditya-raj01/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A90E2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aditya-raj01/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Adityaraj0021)
 
 </div>
