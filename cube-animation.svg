@@ -1,117 +1,185 @@
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @keyframes rotateCube {
-        0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-        100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
+      @keyframes pulse {
+        0%, 100% { r: 5px; opacity: 0.8; }
+        50% { r: 7px; opacity: 1; }
       }
       
-      @keyframes glowPulse {
-        0%, 100% { filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5)); }
-        50% { filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.8)); }
+      @keyframes flowData {
+        0% { 
+          offset-distance: 0%;
+          opacity: 0;
+        }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { 
+          offset-distance: 100%;
+          opacity: 0;
+        }
       }
       
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
       
-      .cube {
-        animation: rotateCube 8s linear infinite;
-        transform-style: preserve-3d;
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.4)); }
+        50% { filter: drop-shadow(0 0 15px rgba(123, 104, 238, 0.8)); }
       }
       
-      .face {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, #4A90E2, #7B68EE);
-        border: 2px solid rgba(74, 144, 226, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 40px;
-        opacity: 0.85;
+      @keyframes oscillate {
+        0%, 100% { cy: 50; }
+        50% { cy: 55; }
       }
       
-      .glow {
-        animation: glowPulse 2s infinite;
+      .node-center {
+        animation: pulse 2s ease-in-out infinite;
       }
       
-      text {
-        font-weight: bold;
+      .node-layer {
+        animation: pulse 2.5s ease-in-out infinite;
+      }
+      
+      .connection {
+        stroke: url(#gradLine);
+        stroke-width: 2;
+        fill: none;
+        opacity: 0.6;
+      }
+      
+      .data-particle {
+        animation: flowData 3s ease-in infinite;
+      }
+      
+      .outer-ring {
+        animation: rotate 20s linear infinite;
+      }
+      
+      .glow-effect {
+        animation: glow 3s ease-in-out infinite;
       }
     </style>
     
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <!-- Gradients -->
+    <linearGradient id="gradLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7B68EE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6B9D;stop-opacity:0.5" />
+    </linearGradient>
+    
+    <radialGradient id="gradNode" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B68EE;stop-opacity:0.8" />
+    </radialGradient>
+    
+    <!-- Path for data flow along connections -->
+    <path id="path1" d="M 120 50 L 70 85" fill="none"/>
+    <path id="path2" d="M 120 50 L 170 85" fill="none"/>
+    <path id="path3" d="M 70 85 L 70 155" fill="none"/>
+    <path id="path4" d="M 170 85 L 170 155" fill="none"/>
+    <path id="path5" d="M 70 155 L 120 190" fill="none"/>
+    <path id="path6" d="M 170 155 L 120 190" fill="none"/>
+    <path id="path7" d="M 70 85 L 170 85" fill="none"/>
+    <path id="path8" d="M 70 155 L 170 155" fill="none"/>
   </defs>
-
-  <!-- Background Glow -->
-  <circle cx="100" cy="100" r="70" fill="rgba(74, 144, 226, 0.1)" filter="url(#glow)" class="glow"/>
   
-  <!-- Rotating Cube Group -->
-  <g class="cube" style="transform-origin: 100px 100px">
-    <!-- Front Face (🤖) -->
-    <rect x="60" y="60" width="80" height="80" fill="url(#grad1)" stroke="rgba(74, 144, 226, 0.8)" stroke-width="2" opacity="0.85"/>
-    <text x="100" y="110" text-anchor="middle" font-size="40" dominant-baseline="middle">🤖</text>
-    
-    <!-- Back Face (🧠) -->
-    <rect x="60" y="60" width="80" height="80" fill="url(#grad2)" stroke="rgba(74, 144, 226, 0.8)" stroke-width="2" opacity="0.7" transform="rotateY(180deg) translate(-160, 0)"/>
-    <text x="100" y="110" text-anchor="middle" font-size="40" dominant-baseline="middle" transform="rotateY(180deg) translate(-160, 0)" fill="white">🧠</text>
-    
-    <!-- Right Face (✨) -->
-    <rect x="140" y="60" width="80" height="80" fill="url(#grad3)" stroke="rgba(74, 144, 226, 0.8)" stroke-width="2" opacity="0.85" transform="rotateY(90deg) translate(0, 0)"/>
-    <text x="180" y="110" text-anchor="middle" font-size="40" dominant-baseline="middle" transform="rotateY(90deg) translate(0, 0)">✨</text>
-    
-    <!-- Left Face (🔗) -->
-    <rect x="-20" y="60" width="80" height="80" fill="url(#grad4)" stroke="rgba(74, 144, 226, 0.8)" stroke-width="2" opacity="0.85" transform="rotateY(-90deg) translate(0, 0)"/>
-    <text x="20" y="110" text-anchor="middle" font-size="40" dominant-baseline="middle" transform="rotateY(-90deg) translate(0, 0)">🔗</text>
-    
-    <!-- Top Face (📊) -->
-    <rect x="60" y="0" width="80" height="80" fill="url(#grad5)" stroke="rgba(74, 144, 226, 0.8)" stroke-width="2" opacity="0.85" transform="rotateX(90deg) translate(0, -160)"/>
-    <text x="100" y="40" text-anchor="middle" font-size="40" dominant-baseline="middle" transform="rotateX(90deg) translate(0, -160)">📊</text>
-    
-    <!-- Bottom Face (⚡) -->
-    <rect x="60" y="140" width="80" height="80" fill="url(#grad6)" stroke="rgba(74, 144, 226, 0.8)" stroke-width="2" opacity="0.85" transform="rotateX(-90deg) translate(0, 160)"/>
-    <text x="100" y="180" text-anchor="middle" font-size="40" dominant-baseline="middle" transform="rotateX(-90deg) translate(0, 160)">⚡</text>
+  <!-- Background glow sphere -->
+  <circle cx="120" cy="120" r="95" fill="rgba(74, 144, 226, 0.05)" class="glow-effect"/>
+  
+  <!-- Outer rotating ring with nodes -->
+  <g class="outer-ring">
+    <circle cx="120" cy="40" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="180" cy="60" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="200" cy="120" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="180" cy="180" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="120" cy="200" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="60" cy="180" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="40" cy="120" r="4" fill="#FF6B9D" opacity="0.6"/>
+    <circle cx="60" cy="60" r="4" fill="#FF6B9D" opacity="0.6"/>
   </g>
-
-  <!-- Floating Particles -->
-  <circle cx="40" cy="70" r="2" fill="#4A90E2" opacity="0.6" style="animation: float 2s ease-in-out infinite;"/>
-  <circle cx="160" cy="80" r="2" fill="#4A90E2" opacity="0.6" style="animation: float 2s ease-in-out infinite 0.3s;"/>
-  <circle cx="100" cy="140" r="2" fill="#4A90E2" opacity="0.6" style="animation: float 2s ease-in-out infinite 0.6s;"/>
-
-  <!-- Gradients -->
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7B68EE;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7B68EE;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4A90E2;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FF6B9D;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7B68EE;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FF6B9D;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7B68EE;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4A90E2;stop-opacity:1" />
-    </linearGradient>
-  </defs>
+  
+  <!-- Input Layer Connections -->
+  <line x1="120" y1="50" x2="70" y2="85" class="connection"/>
+  <line x1="120" y1="50" x2="170" y2="85" class="connection"/>
+  
+  <!-- Hidden Layer 1 Connections -->
+  <line x1="70" y1="85" x2="70" y2="155" class="connection"/>
+  <line x1="170" y1="85" x2="170" y2="155" class="connection"/>
+  <line x1="70" y1="85" x2="170" y2="85" class="connection"/>
+  
+  <!-- Hidden Layer 2 Connections -->
+  <line x1="70" y1="155" x2="120" y2="190" class="connection"/>
+  <line x1="170" y1="155" x2="120" y2="190" class="connection"/>
+  <line x1="70" y1="155" x2="170" y2="155" class="connection"/>
+  
+  <!-- Input Layer (Top) -->
+  <circle cx="120" cy="50" r="6" fill="url(#gradNode)" class="node-center"/>
+  <text x="120" y="55" text-anchor="middle" font-size="20" fill="white" font-weight="bold">⚡</text>
+  
+  <!-- Hidden Layer 1 (Middle Left & Right) -->
+  <circle cx="70" cy="85" r="5" fill="url(#gradNode)" class="node-layer"/>
+  <circle cx="170" cy="85" r="5" fill="url(#gradNode)" class="node-layer"/>
+  
+  <!-- Hidden Layer 2 (Bottom Left & Right) -->
+  <circle cx="70" cy="155" r="5" fill="url(#gradNode)" class="node-layer"/>
+  <circle cx="170" cy="155" r="5" fill="url(#gradNode)" class="node-layer"/>
+  
+  <!-- Output Layer (Bottom Center) -->
+  <circle cx="120" cy="190" r="6" fill="url(#gradNode)" class="node-center"/>
+  <text x="120" y="195" text-anchor="middle" font-size="20" fill="white" font-weight="bold">🧠</text>
+  
+  <!-- Data Flow Particles -->
+  <g class="data-particle">
+    <circle r="3" fill="#4A90E2" opacity="0.7">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path1"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <g class="data-particle" style="animation-delay: 0.5s;">
+    <circle r="3" fill="#7B68EE" opacity="0.7">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path2"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <g class="data-particle" style="animation-delay: 1s;">
+    <circle r="3" fill="#FF6B9D" opacity="0.7">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path3"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <g class="data-particle" style="animation-delay: 1.5s;">
+    <circle r="3" fill="#4A90E2" opacity="0.7">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path4"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <g class="data-particle" style="animation-delay: 2s;">
+    <circle r="3" fill="#7B68EE" opacity="0.7">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path5"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <g class="data-particle" style="animation-delay: 0.3s;">
+    <circle r="3" fill="#FF6B9D" opacity="0.7">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path6"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Center text label -->
+  <text x="120" y="125" text-anchor="middle" font-size="12" fill="#4A90E2" font-weight="bold" opacity="0.7">AI/ML</text>
+  
 </svg>
