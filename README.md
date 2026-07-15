@@ -1,16 +1,21 @@
 <div align="center">
+<img src="https://avatars.githubusercontent.com/u/94460956?v=4" width="96" style="border-radius:50%"/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:203A43,100:2C9EF7&height=190&section=header&text=Aditya%20Raj&fontSize=46&fontColor=ffffff&fontAlignY=38&desc=AI%20%2F%20ML%20%2F%20GenAI%20Engineer&descAlignY=58&descSize=18" width="100%" alt="header"/>
+# Aditya Raj
 
-<img src="https://avatars.githubusercontent.com/u/94460956?v=4" width="115" style="border-radius:50%;border:3px solid #2C9EF7;" alt="Aditya Raj"/>
+**AI/ML Engineer** — building predictive models & LLM-powered systems
 
-### Machine Learning Engineer building intelligent, data-driven systems
+```bash
+$ whoami
+Aditya Raj · AI/ML Engineer · Bihar, India
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&duration=3000&pause=1000&color=2C9EF7&center=true&vCenter=true&width=650&lines=AI+%2F+ML+Engineer;GenAI+%26+LLM+Explorer;Deep+Learning+%7C+Computer+Vision+%7C+NLP;Turning+Data+into+Decisions)](https://git.io/typing-svg)
+$ focus --current
+["Machine Learning", "Generative AI", "LLM Engineering"]
+```
 
-<a href="https://www.linkedin.com/in/aditya-raj01/"><img src="https://img.shields.io/badge/LinkedIn-Aditya%20Raj-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<img src="https://img.shields.io/badge/Based%20in-Bihar%2C%20India-2C5364?style=flat-square&logo=googlemaps&logoColor=white" alt="Location"/>
-<a href="https://github.com/Adityaraj0021?tab=followers"><img src="https://img.shields.io/github/followers/Adityaraj0021?style=flat-square&logo=github&color=2C5364&label=Followers" alt="GitHub followers"/></a>
+<a href="https://www.linkedin.com/in/aditya-raj01/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+<a href="https://github.com/Adityaraj0021?tab=followers"><img src="https://img.shields.io/github/followers/Adityaraj0021?style=flat-square&logo=github&color=181717&label=Followers" alt="GitHub followers"/></a>
+<img src="https://img.shields.io/badge/Bihar%2C%20India-181717?style=flat-square&logo=googlemaps&logoColor=white" alt="Location"/>
 
 </div>
 
