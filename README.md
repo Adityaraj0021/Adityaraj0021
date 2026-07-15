@@ -1,381 +1,76 @@
-<style>
-  @keyframes glowPulse {
-    0%, 100% { text-shadow: 0 0 10px rgba(74, 144, 226, 0.5), 0 0 20px rgba(74, 144, 226, 0.3); }
-    50% { text-shadow: 0 0 20px rgba(74, 144, 226, 0.8), 0 0 40px rgba(74, 144, 226, 0.5), 0 0 60px rgba(74, 144, 226, 0.3); }
-  }
-  
-  @keyframes slideInDown {
-    from { 
-      opacity: 0;
-      transform: translateY(-30px) rotateX(45deg);
-    }
-    to { 
-      opacity: 1;
-      transform: translateY(0) rotateX(0deg);
-    }
-  }
-
-  @keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  
-  @keyframes blink {
-    0%, 50% { border-right-color: #4A90E2; }
-    51%, 100% { border-right-color: transparent; }
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotateZ(0deg); }
-    50% { transform: translateY(-15px) rotateZ(2deg); }
-  }
-
-  @keyframes rotateCube {
-    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
-  }
-
-  @keyframes particleFloat {
-    0% { opacity: 0; transform: translateY(20px); }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-80px); }
-  }
-
-  .hero-container {
-    perspective: 1200px;
-    position: relative;
-    margin-bottom: 40px;
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .avatar-wrapper {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: slideInDown 1s ease-out;
-  }
-
-  .avatar-glow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.3), rgba(138, 43, 226, 0.3));
-    filter: blur(15px);
-    animation: glowPulse 2s infinite, float 3s ease-in-out infinite;
-  }
-
-  .avatar-cube {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    animation: rotateCube 20s linear infinite;
-    transform-style: preserve-3d;
-    z-index: 2;
-  }
-
-  .cube-face {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #4A90E2, #7B68EE);
-    border: 2px solid rgba(74, 144, 226, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: white;
-    opacity: 0.9;
-  }
-
-  .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(60px); }
-  .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(60px); }
-  .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(60px); }
-  .cube-face:nth-child(4) { transform: rotateY(270deg) translateZ(60px); }
-  .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(60px); }
-  .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(60px); }
-
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #4A90E2;
-    border-radius: 50%;
-    animation: particleFloat 2s ease-in infinite;
-  }
-
-  .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-  .particle:nth-child(2) { left: 20%; animation-delay: 0.3s; }
-  .particle:nth-child(3) { left: 30%; animation-delay: 0.6s; }
-  .particle:nth-child(4) { right: 30%; animation-delay: 0.9s; }
-  .particle:nth-child(5) { right: 20%; animation-delay: 1.2s; }
-  .particle:nth-child(6) { right: 10%; animation-delay: 1.5s; }
-
-  .title-wrapper {
-    text-align: center;
-    animation: slideInDown 0.8s ease-out;
-  }
-
-  .title-wrapper h1 {
-    font-size: 3.5em;
-    margin: 10px 0;
-    background: linear-gradient(135deg, #4A90E2 0%, #7B68EE 50%, #FF6B9D 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 2px;
-    font-weight: 900;
-    animation: glowPulse 2s infinite;
-  }
-
-  .subtitle {
-    font-size: 1.2em;
-    color: #4A90E2;
-    font-weight: 600;
-    animation: slideInDown 1s ease-out;
-    letter-spacing: 1px;
-  }
-
-  .badge-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-    animation: slideInDown 1.2s ease-out;
-    margin-top: 20px;
-  }
-
-  .status-badge {
-    background: rgba(74, 144, 226, 0.1);
-    border: 1px solid #4A90E2;
-    color: #4A90E2;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-
-  .status-badge:hover {
-    background: rgba(74, 144, 226, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.3);
-  }
-
-  .terminal-container {
-    perspective: 1200px;
-    max-width: 600px;
-    margin: 0 auto;
-    animation: slideInDown 1.4s ease-out;
-  }
-
-  .terminal-box {
-    background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
-    border: 2px solid #4A90E2;
-    border-radius: 12px;
-    padding: 20px;
-    font-family: 'Monaco', 'Courier New', monospace;
-    font-size: 14px;
-    color: #00ff88;
-    box-shadow: 
-      0 0 20px rgba(74, 144, 226, 0.3),
-      inset 0 0 20px rgba(74, 144, 226, 0.1),
-      0 10px 40px rgba(0, 0, 0, 0.5);
-    transform: rotateX(5deg) rotateZ(-2deg);
-    transition: all 0.3s ease;
-  }
-
-  .terminal-box:hover {
-    transform: rotateX(2deg) rotateZ(0deg) translateY(-5px);
-    box-shadow: 
-      0 0 30px rgba(74, 144, 226, 0.5),
-      inset 0 0 20px rgba(74, 144, 226, 0.15),
-      0 20px 60px rgba(0, 0, 0, 0.6);
-  }
-
-  .terminal-header {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    opacity: 0.7;
-  }
-
-  .dot-red { background: #ff5f57; }
-  .dot-yellow { background: #febc2e; }
-  .dot-green { background: #28c940; }
-
-  .prompt {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    animation: slideInDown 0.6s ease-out;
-  }
-
-  .prompt-symbol {
-    color: #4A90E2;
-    font-weight: bold;
-    margin-right: 8px;
-    animation: glowPulse 2s infinite;
-  }
-
-  .command {
-    animation: typewriter 1.5s steps(40, end), blink 0.75s step-end infinite;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid #4A90E2;
-    padding-right: 5px;
-  }
-
-  .output-line {
-    margin: 12px 0;
-    animation: slideInDown 0.8s ease-out;
-    opacity: 0.95;
-  }
-
-  .focus-items {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 8px;
-  }
-
-  .focus-item {
-    background: rgba(74, 144, 226, 0.15);
-    border: 1px solid #4A90E2;
-    border-radius: 20px;
-    padding: 5px 12px;
-    font-size: 12px;
-    color: #4A90E2;
-    animation: slideInDown 1s ease-out;
-  }
-
-  .focus-item:nth-child(1) { animation-delay: 0.2s; }
-  .focus-item:nth-child(2) { animation-delay: 0.4s; }
-  .focus-item:nth-child(3) { animation-delay: 0.6s; }
-
-  .social-links {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    animation: slideInDown 1.6s ease-out;
-    margin-top: 20px;
-  }
-
-  .social-links a {
-    transition: all 0.3s ease;
-  }
-
-  .social-links a:hover {
-    transform: translateY(-5px);
-  }
-</style>
-
 <div align="center">
 
-<div class="hero-container">
-  <div class="hero-content">
-    <!-- 3D Avatar Cube -->
-    <div class="avatar-wrapper">
-      <div class="avatar-glow"></div>
-      <div class="avatar-cube">
-        <div class="cube-face">🤖</div>
-        <div class="cube-face">🧠</div>
-        <div class="cube-face">✨</div>
-        <div class="cube-face">🔗</div>
-        <div class="cube-face">📊</div>
-        <div class="cube-face">⚡</div>
-      </div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 40px;">
+  <!-- Animated 3D Cube SVG -->
+  <img src="https://raw.githubusercontent.com/Adityaraj0021/Adityaraj0021/main/cube-animation.svg" alt="3D Rotating Cube" width="140" height="140" style="animation: float 3s ease-in-out infinite;">
 
-    <!-- Title Section -->
-    <div class="title-wrapper">
-      <h1>ADITYA RAJ</h1>
-      <p class="subtitle">AI/ML Engineer</p>
-      <p style="color: #888; font-size: 1em; letter-spacing: 0.5px; margin: 5px 0;">Building Predictive Models & LLM-Powered Systems</p>
-    </div>
+  <!-- Title Section -->
+  <div style="text-align: center;">
+    <h1 style="font-size: 3.5em; margin: 10px 0; background: linear-gradient(135deg, #4A90E2 0%, #7B68EE 50%, #FF6B9D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2px; font-weight: 900;">ADITYA RAJ</h1>
+    <p style="font-size: 1.2em; color: #4A90E2; font-weight: 600; letter-spacing: 1px;">AI/ML Engineer</p>
+    <p style="color: #888; font-size: 1em; letter-spacing: 0.5px; margin: 5px 0;">Building Predictive Models & LLM-Powered Systems</p>
+  </div>
 
-    <!-- Status Badges -->
-    <div class="badge-container">
-      <div class="status-badge">🧪 Building ML Models</div>
-      <div class="status-badge">🔬 Exploring GenAI</div>
-      <div class="status-badge">🤝 Open to Collabs</div>
-    </div>
+  <!-- Status Badges -->
+  <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+    <span style="background: rgba(74, 144, 226, 0.1); border: 1px solid #4A90E2; color: #4A90E2; padding: 8px 16px; border-radius: 20px; font-weight: 600;">🧪 Building ML Models</span>
+    <span style="background: rgba(74, 144, 226, 0.1); border: 1px solid #4A90E2; color: #4A90E2; padding: 8px 16px; border-radius: 20px; font-weight: 600;">🔬 Exploring GenAI</span>
+    <span style="background: rgba(74, 144, 226, 0.1); border: 1px solid #4A90E2; color: #4A90E2; padding: 8px 16px; border-radius: 20px; font-weight: 600;">🤝 Open to Collabs</span>
   </div>
 </div>
 
 <!-- Modern Terminal -->
-<div class="terminal-container">
-  <div class="terminal-box">
-    <div class="terminal-header">
-      <div class="dot dot-red"></div>
-      <div class="dot dot-yellow"></div>
-      <div class="dot dot-green"></div>
+<div style="perspective: 1200px; max-width: 600px; margin: 0 auto;">
+  <div style="background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%); border: 2px solid #4A90E2; border-radius: 12px; padding: 20px; font-family: 'Monaco', 'Courier New', monospace; font-size: 14px; color: #00ff88; box-shadow: 0 0 20px rgba(74, 144, 226, 0.3), inset 0 0 20px rgba(74, 144, 226, 0.1), 0 10px 40px rgba(0, 0, 0, 0.5);">
+    <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; opacity: 0.7;"></div>
+      <div style="width: 12px; height: 12px; border-radius: 50%; background: #febc2e; opacity: 0.7;"></div>
+      <div style="width: 12px; height: 12px; border-radius: 50%; background: #28c940; opacity: 0.7;"></div>
     </div>
     
-    <div class="prompt">
-      <span class="prompt-symbol">❯</span>
-      <span class="command">whoami</span>
+    <div style="display: flex; align-items: center; margin: 10px 0;">
+      <span style="color: #4A90E2; font-weight: bold; margin-right: 8px;">❯</span>
+      <span style="color: #00ff88;">whoami</span>
     </div>
-    <div class="output-line">Aditya Raj • AI/ML Engineer • Bihar, India</div>
+    <div style="margin: 12px 0; opacity: 0.95;">Aditya Raj • AI/ML Engineer • Bihar, India</div>
     
-    <div class="prompt" style="margin-top: 15px;">
-      <span class="prompt-symbol">❯</span>
-      <span class="command">focus --current</span>
+    <div style="display: flex; align-items: center; margin: 15px 0 10px 0;">
+      <span style="color: #4A90E2; font-weight: bold; margin-right: 8px;">❯</span>
+      <span style="color: #00ff88;">focus --current</span>
     </div>
-    <div class="output-line">
-      <div class="focus-items">
-        <span class="focus-item">🧠 Machine Learning</span>
-        <span class="focus-item">✨ Generative AI</span>
-        <span class="focus-item">🔗 LLM Engineering</span>
+    <div style="margin: 12px 0; opacity: 0.95;">
+      <div style="display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+        <span style="background: rgba(74, 144, 226, 0.15); border: 1px solid #4A90E2; border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #4A90E2;">🧠 Machine Learning</span>
+        <span style="background: rgba(74, 144, 226, 0.15); border: 1px solid #4A90E2; border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #4A90E2;">✨ Generative AI</span>
+        <span style="background: rgba(74, 144, 226, 0.15); border: 1px solid #4A90E2; border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #4A90E2;">🔗 LLM Engineering</span>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Social Links -->
-<div class="social-links">
+<div style="display: flex; gap: 12px; justify-content: center; margin-top: 20px;">
   <a href="https://www.linkedin.com/in/aditya-raj01/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-  <a href="https://github.com/Adityaraj0021?tab=followers"><img src="https://img.shields.io/github/followers/Adityaraj0021?style=flat-square&logo=github&color=181717&label=Followers" alt="GitHub followers"/></a>
+  <a href="https://github.com/Adityaraj0021?tab=followers"><img src="https://img.shields.io/github/followers/Adityaraj0021?style=flat-square&logo=github&color=181717&label=Followers" alt="GitHub Followers"/></a>
   <img src="https://img.shields.io/badge/Bihar%2C%20India-181717?style=flat-square&logo=googlemaps&logoColor=white" alt="Location"/>
 </div>
 
 </div>
 
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+</style>
+
 <br/>
 
 ## 🧠 About Me
 
-Somewhere between a `pandas.DataFrame` and a prompt template, I found what I actually want to build: systems that turn raw data — and now raw language — into decisions. I started with the fundamentals of ML pipelines; now I'm architecting intelligent systems powered by foundation models.
+Somewhere between a `pandas.DataFrame` and a prompt template, I found what I actually want to build: systems that turn raw data — and now raw language — into decisions. I started with the fun of building models, but that's evolved into something deeper: understanding *why* a model works, *why* the data matters, and *how* to build end-to-end systems that actually work in practice.
 
-I care less about the buzzword and more about the pipeline holding together end to end: clean data in, a model that actually generalizes, and something a user can touch at the end — a churn predictor, a recommendation engine, or an agent that reasons through complex problems.
+I care less about the buzzword and more about the pipeline holding together end to end: clean data in, a model that actually generalizes, and something a user can touch at the end — a churn prediction system, a recommendation engine that works, a classifier that defends its predictions.
 
 ```python
 class AdityaRaj:
